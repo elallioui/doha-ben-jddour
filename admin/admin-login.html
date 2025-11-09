@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Access - Doha Ben Jeddour Portfolio</title>
+    <meta name="description" content="Secure admin access for Doha Ben Jeddour's portfolio management">
+    
+    <!-- Preload resources -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" as="style">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #8B5FBF;
+            --secondary: #FF6B8B;
+            --dark: #2A2D43;
+            --light: #FDF7F3;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(139, 95, 191, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 107, 139, 0.05) 0%, transparent 20%);
+        }
+        
+        .login-wrapper {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            background: white;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            min-height: 700px;
+            position: relative;
+        }
+        
+        .login-sidebar {
+            flex: 1;
+            background: var(--gradient);
+            color: white;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .login-sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80') center/cover;
+            opacity: 0.1;
+        }
+        
+        .sidebar-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .login-sidebar h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .login-sidebar p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin-top: 3rem;
+        }
+        
+        .features-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .features-list i {
+            margin-right: 1.2rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .login-container {
+            flex: 1;
+            padding: 4rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: white;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary);
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .login-header h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .login-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        
+        .input-with-icon {
+            position: relative;
+        }
+        
+        .input-with-icon i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        input {
+            width: 100%;
+            padding: 1.2rem 1.2rem 1.2rem 3.5rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            background: #fafbfc;
+        }
+        
+        input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(139, 95, 191, 0.1);
+            background: white;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(139, 95, 191, 0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .error {
+            color: #e74c3c;
+            text-align: center;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #ffeaea;
+            border-radius: 8px;
+            display: none;
+            font-weight: 500;
+        }
+        
+        .security-notice {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            border: 1px solid #e9ecef;
+        }
+        
+        .security-notice i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+        
+        .back-to-portfolio {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .back-to-portfolio a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-to-portfolio a:hover {
+            color: var(--secondary);
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+        
+        @media (max-width: 968px) {
+            .login-wrapper {
+                flex-direction: column;
+                min-height: auto;
+            }
+            
+            .login-sidebar {
+                padding: 2.5rem;
+            }
+            
+            .login-container {
+                padding: 3rem 2rem;
+            }
+            
+            .login-sidebar h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .login-sidebar {
+                padding: 2rem 1.5rem;
+            }
+            
+            .login-container {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .login-sidebar h1 {
+                font-size: 1.8rem;
+            }
+            
+            .login-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-wrapper">
+        <div class="login-sidebar">
+            <div class="sidebar-content">
+                <h1>Portfolio Admin System</h1>
+                <p>Professional content management for Doha Ben Jeddour's artistic portfolio</p>
+                
+                <ul class="features-list">
+                    <li><i class="fas fa-image"></i> Dynamic Gallery Management</li>
+                    <li><i class="fas fa-project-diagram"></i> Project Portfolio Updates</li>
+                    <li><i class="fas fa-user-edit"></i> Professional Bio Editing</li>
+                    <li><i class="fas fa-cogs"></i> Real-time Content Preview</li>
+                    <li><i class="fas fa-mobile-alt"></i> Mobile-Optimized Interface</li>
+                    <li><i class="fas fa-database"></i> Secure Data Management</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="login-container">
+            <div class="logo">
+                <i class="fas fa-palette"></i>
+                Doha Ben Jeddour
+            </div>
+            
+            <div class="login-header">
+                <h2>Admin Access</h2>
+                <p>Secure authentication required for portfolio management</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" placeholder="Enter your username" required autocomplete="username">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Enter your password" required autocomplete="current-password">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn">
+                    <i class="fas fa-sign-in-alt"></i> Access Admin Panel
+                </button>
+                
+                <div class="error" id="errorMessage">
+                    <i class="fas fa-exclamation-triangle"></i> Invalid username or password
+                </div>
+            </form>
+            
+            <div class="security-notice">
+                <i class="fas fa-shield-alt"></i> Secure admin access. Contact portfolio administrator if you've forgotten your credentials.
+            </div>
+            
+            <div class="back-to-portfolio">
+                <a href="../index.html">
+                    <i class="fas fa-arrow-left"></i> Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced login functionality
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            
+            // Enhanced credential validation
+            const validCredentials = [
+                { user: 'admin', pass: 'DohaArt2024!' },
+                { user: 'doha', pass: 'CreativePortfolio!' },
+                { user: 'manager', pass: 'ArtGallery2024' }
+            ];
+            
+            const isValid = validCredentials.some(cred => 
+                username.toLowerCase() === cred.user.toLowerCase() && password === cred.pass
+            );
+            
+            if (isValid) {
+                // Create secure session
+                const sessionData = {
+                    authenticated: true,
+                    user: username,
+                    loginTime: new Date().toISOString(),
+                    sessionId: 'sess_' + Math.random().toString(36).substr(2, 9)
+                };
+                
+                sessionStorage.setItem('adminSession', JSON.stringify(sessionData));
+                localStorage.setItem('lastAdminUser', username);
+                
+                // Add loading state
+                const btn = this.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
+                btn.disabled = true;
+                
+                // Simulate authentication delay
+                setTimeout(() => {
+                    window.location.href = 'admin-panel.html';
+                }, 1000);
+                
+            } else {
+                const errorEl = document.getElementById('errorMessage');
+                errorEl.style.display = 'block';
+                
+                // Enhanced error animation
+                this.style.animation = 'shake 0.5s ease-in-out';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 500);
+                
+                // Clear password field
+                document.getElementById('password').value = '';
+                document.getElementById('password').focus();
+            }
+        });
+
+        // Auto-focus username field
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('username').focus();
+            
+            // Check for existing session
+            const sessionData = JSON.parse(sessionStorage.getItem('adminSession') || '{}');
+            if (sessionData.authenticated) {
+                const loginTime = new Date(sessionData.loginTime);
+                const currentTime = new Date();
+                const hoursDiff = (currentTime - loginTime) / (1000 * 60 * 60);
+                
+                if (hoursDiff < 4) { // 4-hour session
+                    window.location.href = 'admin-panel.html';
+                } else {
+                    sessionStorage.removeItem('adminSession');
+                }
+            }
+            
+            // Fill last used username if available
+            const lastUser = localStorage.getItem('lastAdminUser');
+            if (lastUser) {
+                document.getElementById('username').value = lastUser;
+            }
+        });
+
+        // Enter key navigation
+        document.getElementById('username').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                document.getElementById('password').focus();
+            }
+        });
+
+        document.getElementById('password').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+            }
+        });
+    </script>
+</body>
+</html>
