@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doha Ben Jeddour | Artiste Visuelle</title>
+    <meta name="description" content="Portfolio artistique de Doha Ben Jeddour - Étudiante en Arts Appliqués spécialisée en dessin et techniques artistiques traditionnelles">
+    <meta name="keywords" content="Doha Ben Jeddour, artiste, Arts Appliqués, dessin, portfolio, Tanger, Maroc">
+    <meta name="author" content="Doha Ben Jeddour">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #8B5FBF;
+            --secondary: #FF6B8B;
+            --accent: #FFD166;
+            --dark: #2A2D43;
+            --light: #FDF7F3;
+            --text: #2A2D43;
+            --text-light: #7A7E9D;
+            --gray: #F3E9F1;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+        }
+
+        section {
+            padding: clamp(3rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Language Switcher in Header */
+        .language-switcher {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 2rem;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .lang-btn.active {
+            background: var(--gradient);
+            color: white;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(253, 247, 243, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: var(--transition);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        nav.scrolled {
+            padding: 0.7rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 4vw, 2rem);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-left: clamp(1rem, 3vw, 2rem);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        /* Professional Hamburger */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: var(--primary);
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: var(--transition);
+        }
+
+        .hamburger span:nth-child(1) {
+            top: 0;
+        }
+
+        .hamburger span:nth-child(2) {
+            top: 8px;
+        }
+
+        .hamburger span:nth-child(3) {
+            top: 16px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            top: 8px;
+            transform: rotate(135deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            left: -30px;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            top: 8px;
+            transform: rotate(-135deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(42, 45, 67, 0.8), rgba(42, 45, 67, 0.6)), url('') no-repeat center center/cover;
+            color: var(--light);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 clamp(1rem, 4vw, 2rem);
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeUp 1s ease 0.3s forwards;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2.5rem);
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeUp 1s ease 0.6s forwards;
+            box-shadow: var(--shadow);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(139, 95, 191, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--light);
+            color: var(--light);
+        }
+
+        .btn-outline:hover {
+            background: var(--light);
+            color: var(--primary);
+        }
+
+        /* About Section */
+        .about {
+            background-color: white;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: clamp(2rem, 5vw, 3rem);
+            flex-wrap: wrap;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-image-container {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 5px solid var(--light);
+            position: relative;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .profile-image-container:hover .profile-image {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .quote {
+            font-style: italic;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--gray);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 5px 5px 0;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            position: relative;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .quote:before {
+            content: """;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-family: serif;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background-color: var(--gray);
+        }
+
+        .gallery-filters {
+            text-align: center;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            border: none;
+            background: white;
+            color: var(--text);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            font-size: clamp(0.85rem, 2vw, 0.9rem);
+            font-weight: 500;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            aspect-ratio: 1/1;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(139, 95, 191, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item-overlay i {
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        .gallery-item.hidden {
+            display: none;
+        }
+
+        /* Gallery Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1100;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(1rem, 4vw, 2rem);
+        }
+
+        .modal.open {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 800px;
+            max-height: 90vh;
+            position: relative;
+            width: 100%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+            z-index: 1101;
+        }
+
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 clamp(1rem, 4vw, 2rem);
+            z-index: 1101;
+        }
+
+        .modal-nav button {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-nav button:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Projects Section */
+        .projects {
+            background-color: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: clamp(1.5rem, 4vw, 2rem);
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-category {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .project-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .project-meta i {
+            margin-right: 0.5rem;
+            color: var(--primary);
+        }
+
+        .project-content p {
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .project-tag {
+            background: var(--gray);
+            color: var(--text);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Project Detail Modal */
+        .project-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1200;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(1rem, 4vw, 2rem);
+            overflow-y: auto;
+        }
+
+        .project-modal.open {
+            display: flex;
+        }
+
+        .project-modal-content {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .project-modal-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid var(--gray);
+            position: relative;
+        }
+
+        .project-modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .project-modal-close:hover {
+            background: var(--gray);
+            color: var(--text);
+        }
+
+        .project-modal-title {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .project-modal-meta {
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-modal-meta i {
+            margin-right: 0.5rem;
+            color: var(--primary);
+        }
+
+        .project-modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .project-modal-gallery {
+            background: var(--dark);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-modal-main-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .project-modal-main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-modal-thumbnails {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .project-modal-thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .project-modal-thumbnail.active,
+        .project-modal-thumbnail:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .project-modal-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-modal-info {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-modal-description {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .project-modal-details {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-modal-details h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .project-modal-details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-modal-details li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .project-modal-details li i {
+            margin-right: 0.5rem;
+            color: var(--primary);
+            margin-top: 0.2rem;
+        }
+
+        .project-modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-modal-tag {
+            background: var(--gray);
+            color: var(--text);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-modal-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--gray);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: clamp(2rem, 5vw, 3rem);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            margin-right: 1rem;
+            color: var(--primary);
+            width: 20px;
+            margin-top: 0.2rem;
+        }
+
+        .contact-item-content h4 {
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item-content p {
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(139, 95, 191, 0.4);
+        }
+
+        .contact-form {
+            background: white;
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(139, 95, 191, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--light);
+            text-align: center;
+            padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 4vw, 2rem);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .copyright {
+            margin-bottom: 0.5rem;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        .made-with {
+            font-size: clamp(0.85rem, 2vw, 0.9rem);
+            color: #bdc3c7;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: var(--shadow);
+        }
+
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(139, 95, 191, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-img, .about-text {
+                min-width: 100%;
+            }
+            
+            .project-modal-body {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-modal-gallery {
+                order: 2;
+            }
+            
+            .project-modal-info {
+                order: 1;
+            }
+
+            .language-switcher {
+                margin-left: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 2rem;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .modal-nav {
+                padding: 0 1rem;
+            }
+            
+            .modal-nav button {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .close-modal {
+                top: -50px;
+                right: 10px;
+            }
+            
+            .project-modal-header,
+            .project-modal-gallery,
+            .project-modal-info {
+                padding: 1.5rem;
+            }
+
+            .profile-image-container {
+                width: 250px;
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .project-modal-actions {
+                flex-direction: column;
+            }
+
+            .profile-image-container {
+                width: 200px;
+                height: 200px;
+            }
+
+            .language-switcher {
+                margin-left: 0.5rem;
+            }
+
+            .lang-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+            section {
+                padding: 2rem 1rem;
+            }
+            
+            .nav-container {
+                padding: 0 1rem;
+            }
+            
+            .hero-content {
+                padding: 0 1rem;
+            }
+            
+            .gallery-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Doha Ben Jeddour</a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active" data-fr="Accueil" data-en="Home">Accueil</a></li>
+                <li><a href="#about" class="nav-link" data-fr="À Propos" data-en="About">À Propos</a></li>
+                <li><a href="#gallery" class="nav-link" data-fr="Galerie" data-en="Gallery">Galerie</a></li>
+                <li><a href="#projects" class="nav-link" data-fr="Projets" data-en="Projects">Projets</a></li>
+                <li><a href="#contact" class="nav-link" data-fr="Contact" data-en="Contact">Contact</a></li>
+                <li class="language-switcher">
+                    <button class="lang-btn active" data-lang="fr">FR</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 data-fr="Doha Ben Jeddour" data-en="Doha Ben Jeddour">Doha Ben Jeddour</h1>
+            <p data-fr="Étudiante en Arts Appliqués" data-en="Applied Arts Student">Étudiante en Arts Appliqués</p>
+            <a href="#gallery" class="btn" data-fr="Voir Mon Art" data-en="View My Art">Voir Mon Art</a>
+            <a href="#contact" class="btn btn-outline" style="margin-left: 15px;" data-fr="Me Contacter" data-en="Get In Touch">Me Contacter</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 data-fr="À Propos de Moi" data-en="About Me">À Propos de Moi</h2>
+            <div class="about-content">
+                <div class="about-img fade-in">
+                    <div class="profile-image-container">
+                        <img src="" alt="Doha Ben Jeddour" class="profile-image" id="aboutProfileImage">
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p id="aboutText1" data-fr="Je suis Doha Ben Jeddour, étudiante en Arts Appliqués au Lycée Technique Moulay Youssef à Tanger, Maroc. Passionnée par l'art depuis mon plus jeune âge, je me spécialise dans le dessin et les techniques artistiques traditionnelles." data-en="I am Doha Ben Jeddour, an Applied Arts student at Lycée Technique Moulay Youssef in Tangier, Morocco. Passionate about art from a young age, I specialize in drawing and traditional artistic techniques.">Je suis Doha Ben Jeddour, étudiante en Arts Appliqués au Lycée Technique Moulay Youssef à Tanger, Maroc. Passionnée par l'art depuis mon plus jeune âge, je me spécialise dans le dessin et les techniques artistiques traditionnelles.</p>
+                    <p id="aboutText2" data-fr="Mon parcours académique me permet d'explorer diverses formes d'expression artistique tout en développant ma propre identité créative. Chaque œuvre que je crée est le reflet de mon apprentissage continu et de ma passion pour les détails qui donnent vie à l'art." data-en="My academic journey allows me to explore various forms of artistic expression while developing my own creative identity. Each piece I create reflects my continuous learning and passion for the details that bring art to life.">Mon parcours académique me permet d'explorer diverses formes d'expression artistique tout en développant ma propre identité créative. Chaque œuvre que je crée est le reflet de mon apprentissage continu et de ma passion pour les détails qui donnent vie à l'art.</p>
+                    <div class="quote fade-in" id="aboutQuote" data-fr="« La beauté réside dans les détails »" data-en="'Beauty lies in the details'">« La beauté réside dans les détails »</div>
+                    <p id="aboutText3" data-fr="À travers mon portfolio, je souhaite partager mon évolution artistique et mes projets les plus significatifs. Mon objectif est de continuer à apprendre et à grandir en tant qu'artiste, en explorant de nouvelles techniques et en relevant des défis créatifs." data-en="Through my portfolio, I wish to share my artistic evolution and most significant projects. My goal is to continue learning and growing as an artist, exploring new techniques and taking on creative challenges.">À travers mon portfolio, je souhaite partager mon évolution artistique et mes projets les plus significatifs. Mon objectif est de continuer à apprendre et à grandir en tant qu'artiste, en explorant de nouvelles techniques et en relevant des défis créatifs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 data-fr="Mes Dessins" data-en="My Drawings">Mes Dessins</h2>
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all" data-fr="Tous" data-en="All">Tous</button>
+                <button class="filter-btn" data-filter="portrait" data-fr="Portraits" data-en="Portraits">Portraits</button>
+                <button class="filter-btn" data-filter="nature" data-fr="Nature" data-en="Nature">Nature</button>
+                <button class="filter-btn" data-filter="abstract" data-fr="Abstrait" data-en="Abstract">Abstrait</button>
+            </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Modal -->
+    <div class="modal" id="imageModal">
+        <button class="close-modal" id="closeModal">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-nav">
+            <button id="prevImage"><i class="fas fa-chevron-left"></i></button>
+            <button id="nextImage"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="modal-content">
+            <img src="" alt="Artwork" id="modalImage">
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 data-fr="Mes Projets" data-en="My Projects">Mes Projets</h2>
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Detail Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="project-modal-content">
+            <div class="project-modal-header">
+                <button class="project-modal-close" id="projectModalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+                <h3 class="project-modal-title" id="projectModalTitle">Titre du Projet</h3>
+                <div class="project-modal-meta" id="projectModalMeta">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Date - Lieu</span>
+                </div>
+            </div>
+            <div class="project-modal-body">
+                <div class="project-modal-gallery">
+                    <div class="project-modal-main-image">
+                        <img id="projectModalMainImage" src="" alt="Project Image">
+                    </div>
+                    <div class="project-modal-thumbnails" id="projectModalThumbnails">
+                        <!-- Thumbnails will be added dynamically -->
+                    </div>
+                </div>
+                <div class="project-modal-info">
+                    <div class="project-modal-description" id="projectModalDescription">
+                        <p>Description du projet apparaîtra ici.</p>
+                    </div>
+                    <div class="project-modal-details" id="projectModalDetails">
+                        <h4 data-fr="Détails du Projet" data-en="Project Details">Détails du Projet</h4>
+                        <ul id="projectModalDetailsList">
+                            <!-- Details will be added dynamically -->
+                        </ul>
+                    </div>
+                    <div class="project-modal-tags" id="projectModalTags">
+                        <!-- Tags will be added dynamically -->
+                    </div>
+                    <div class="project-modal-actions">
+                        <button class="btn" id="projectModalViewGallery">
+                            <i class="fas fa-images"></i> <span data-fr="Voir la Galerie Complète" data-en="View Full Gallery">Voir la Galerie Complète</span>
+                        </button>
+                        <button class="btn btn-outline" id="projectModalContact">
+                            <i class="fas fa-envelope"></i> <span data-fr="Demander sur le Projet" data-en="Inquire About Project">Demander sur le Projet</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 data-fr="Contact" data-en="Contact">Contact</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 data-fr="Travaillons Ensemble" data-en="Let's Work Together">Travaillons Ensemble</h3>
+                    <p id="contactBio" data-fr="Je suis ouverte aux collaborations, projets créatifs et opportunités d'apprentissage. N'hésitez pas à me contacter pour discuter de vos idées !" data-en="I'm open to collaborations, creative projects, and learning opportunities. Feel free to contact me to discuss your ideas!">Je suis ouverte aux collaborations, projets créatifs et opportunités d'apprentissage. N'hésitez pas à me contacter pour discuter de vos idées !</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-item-content">
+                                <h4 data-fr="Localisation" data-en="Location">Localisation</h4>
+                                <p id="contactLocation">Tanger, Maroc</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-item-content">
+                                <h4>Email</h4>
+                                <p id="contactEmail">doha@benjeddour.art</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="contact-item-content">
+                                <h4 data-fr="Éducation" data-en="Education">Éducation</h4>
+                                <p>Lycée Technique Moulay Youssef<br>Arts Appliqués</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" id="socialInstagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" id="socialBehance"><i class="fab fa-behance"></i></a>
+                        <a href="#" id="socialPinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" data-fr="Nom Complet" data-en="Full Name">Nom Complet</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-fr="Adresse Email" data-en="Email Address">Adresse Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" data-fr="Sujet" data-en="Subject">Sujet</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-fr="Votre Message" data-en="Your Message">Votre Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" data-fr="Envoyer le Message" data-en="Send Message">Envoyer le Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">© 2024 Doha Ben Jeddour. <span data-fr="Tous droits réservés." data-en="All rights reserved.">Tous droits réservés.</span></p>
+            <p class="made-with"><span data-fr="Étudiante en Arts Appliqués - Lycée Technique Moulay Youssef, Tanger" data-en="Applied Arts Student - Lycée Technique Moulay Youssef, Tangier">Étudiante en Arts Appliqués - Lycée Technique Moulay Youssef, Tanger</span></p>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script>
+        // Language management
+        let currentLanguage = 'fr';
+
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-fr]').forEach(element => {
+                if (element.dataset[lang]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = element.dataset[lang];
+                    } else {
+                        element.textContent = element.dataset[lang];
+                    }
+                }
+            });
+            
+            // Update navigation active links
+            updateNavLinks();
+            
+            // Save language preference
+            localStorage.setItem('portfolioLanguage', lang);
+        }
+
+        // Load data from localStorage
+        function loadPortfolioData() {
+            try {
+                // Load about data
+                const aboutData = JSON.parse(localStorage.getItem('aboutData') || '{}');
+                if (aboutData.image) {
+                    document.getElementById('aboutProfileImage').src = aboutData.image;
+                    document.querySelector('.hero').style.backgroundImage = `linear-gradient(rgba(42, 45, 67, 0.8), rgba(42, 45, 67, 0.6)), url('${aboutData.image}')`;
+                }
+                if (aboutData.text1) document.getElementById('aboutText1').textContent = aboutData.text1;
+                if (aboutData.text2) document.getElementById('aboutText2').textContent = aboutData.text2;
+                if (aboutData.quote) document.getElementById('aboutQuote').textContent = aboutData.quote;
+                if (aboutData.text3) document.getElementById('aboutText3').textContent = aboutData.text3;
+
+                // Load gallery data
+                const galleryData = JSON.parse(localStorage.getItem('galleryData') || '[]');
+                renderGallery(galleryData);
+
+                // Load projects data
+                const projectsData = JSON.parse(localStorage.getItem('projectsData') || '{}');
+                renderProjects(projectsData);
+
+                // Load contact data
+                const contactData = JSON.parse(localStorage.getItem('contactData') || '{}');
+                if (contactData.location) document.getElementById('contactLocation').textContent = contactData.location;
+                if (contactData.email) document.getElementById('contactEmail').textContent = contactData.email;
+                if (contactData.bio) document.getElementById('contactBio').textContent = contactData.bio;
+                
+                // Load social links
+                if (contactData.social) {
+                    if (contactData.social.instagram) {
+                        document.getElementById('socialInstagram').href = contactData.social.instagram;
+                    }
+                    if (contactData.social.behance) {
+                        document.getElementById('socialBehance').href = contactData.social.behance;
+                    }
+                    if (contactData.social.pinterest) {
+                        document.getElementById('socialPinterest').href = contactData.social.pinterest;
+                    }
+                }
+
+            } catch (error) {
+                console.error('Error loading portfolio data:', error);
+                // Load default data if no saved data
+                loadDefaultData();
+            }
+        }
+
+        function loadDefaultData() {
+            // Default gallery items
+            const defaultGallery = [
+                {
+                    id: 1,
+                    image: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+                    alt: 'Portrait Drawing',
+                    category: 'portrait'
+                },
+                {
+                    id: 2,
+                    image: 'https://images.unsplash.com/photo-1578321272172-fbe69543b6d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+                    alt: 'Nature Drawing',
+                    category: 'nature'
+                }
+            ];
+
+            // Default projects
+            const defaultProjects = {
+                "projet-scolaire": {
+                    title: "Projet Scolaire - Techniques Mixtes",
+                    meta: "2024 - Lycée Technique Moulay Youssef",
+                    description: "<p>Un projet académique explorant les techniques mixtes dans l'art contemporain, combinant dessin traditionnel et éléments numériques.</p>",
+                    images: [
+                        "https://images.unsplash.com/photo-1578321272172-fbe69543b6d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                    ],
+                    details: [
+                        "Médium: Techniques mixtes",
+                        "Support: Papier et numérique",
+                        "Durée: Projet semestriel"
+                    ],
+                    tags: ["Scolaire", "Techniques Mixtes", "Contemporain"]
+                }
+            };
+
+            renderGallery(defaultGallery);
+            renderProjects(defaultProjects);
+        }
+
+        // Render gallery
+        function renderGallery(galleryData) {
+            const galleryGrid = document.getElementById('galleryGrid');
+            galleryGrid.innerHTML = '';
+            
+            galleryData.forEach((item, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = `gallery-item fade-in`;
+                galleryItem.setAttribute('data-category', item.category);
+                galleryItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.alt}" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                `;
+                galleryGrid.appendChild(galleryItem);
+            });
+            
+            // Reinitialize gallery functionality
+            initializeGallery();
+            initializeFadeIn();
+        }
+
+        // Render projects
+        function renderProjects(projectsData) {
+            const projectsGrid = document.getElementById('projectsGrid');
+            projectsGrid.innerHTML = '';
+            
+            Object.keys(projectsData).forEach(projectId => {
+                const project = projectsData[projectId];
+                const projectCard = document.createElement('div');
+                projectCard.className = 'project-card fade-in';
+                projectCard.setAttribute('data-project', projectId);
+                
+                let category = 'Projet';
+                if (project.tags.includes('Scolaire')) category = 'Scolaire';
+                else if (project.tags.includes('Personnel')) category = 'Personnel';
+                
+                projectCard.innerHTML = `
+                    <div class="project-img">
+                        <img src="${project.images[0]}" alt="${project.title}" loading="lazy">
+                        <div class="project-category">${category}</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>${project.title}</h3>
+                        <div class="project-meta">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>${project.meta}</span>
+                        </div>
+                        <p>${project.description.split('</p>')[0].replace('<p>', '')}</p>
+                        <div class="project-tags">
+                            ${project.tags.slice(0, 3).map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+                projectsGrid.appendChild(projectCard);
+            });
+            
+            // Reinitialize project functionality
+            initializeProjects(projectsData);
+            initializeFadeIn();
+        }
+
+        // Initialize gallery functionality
+        function initializeGallery() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const closeModal = document.getElementById('closeModal');
+            const prevButton = document.getElementById('prevImage');
+            const nextButton = document.getElementById('nextImage');
+            
+            let currentImageIndex = 0;
+            const galleryImages = Array.from(galleryItems);
+            
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    currentImageIndex = index;
+                    const imgSrc = item.querySelector('img').getAttribute('src');
+                    modalImage.setAttribute('src', imgSrc);
+                    modal.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            function showImage(index) {
+                if (index < 0) {
+                    index = galleryImages.length - 1;
+                } else if (index >= galleryImages.length) {
+                    index = 0;
+                }
+                
+                currentImageIndex = index;
+                const imgSrc = galleryImages[currentImageIndex].querySelector('img').getAttribute('src');
+                modalImage.setAttribute('src', imgSrc);
+            }
+            
+            prevButton.addEventListener('click', () => {
+                showImage(currentImageIndex - 1);
+            });
+            
+            nextButton.addEventListener('click', () => {
+                showImage(currentImageIndex + 1);
+            });
+            
+            closeModal.addEventListener('click', () => {
+                modal.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            });
+            
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Keyboard navigation for modal
+            document.addEventListener('keydown', (e) => {
+                if (modal.classList.contains('open')) {
+                    if (e.key === 'Escape') {
+                        modal.classList.remove('open');
+                        document.body.style.overflow = 'auto';
+                    } else if (e.key === 'ArrowLeft') {
+                        showImage(currentImageIndex - 1);
+                    } else if (e.key === 'ArrowRight') {
+                        showImage(currentImageIndex + 1);
+                    }
+                }
+            });
+            
+            // Gallery filtering
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filter items
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        }
+
+        // Initialize projects functionality
+        function initializeProjects(projectsData) {
+            const projectModal = document.getElementById('projectModal');
+            const projectModalClose = document.getElementById('projectModalClose');
+            const projectModalTitle = document.getElementById('projectModalTitle');
+            const projectModalMeta = document.getElementById('projectModalMeta');
+            const projectModalDescription = document.getElementById('projectModalDescription');
+            const projectModalDetailsList = document.getElementById('projectModalDetailsList');
+            const projectModalTags = document.getElementById('projectModalTags');
+            const projectModalMainImage = document.getElementById('projectModalMainImage');
+            const projectModalThumbnails = document.getElementById('projectModalThumbnails');
+            const projectModalViewGallery = document.getElementById('projectModalViewGallery');
+            const projectModalContact = document.getElementById('projectModalContact');
+            
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            projectCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const projectId = card.getAttribute('data-project');
+                    const project = projectsData[projectId];
+                    
+                    if (project) {
+                        // Set project details
+                        projectModalTitle.textContent = project.title;
+                        projectModalMeta.innerHTML = `<i class="far fa-calendar-alt"></i><span>${project.meta}</span>`;
+                        projectModalDescription.innerHTML = project.description;
+                        
+                        // Set project details list
+                        projectModalDetailsList.innerHTML = '';
+                        project.details.forEach(detail => {
+                            const li = document.createElement('li');
+                            li.innerHTML = `<i class="fas fa-circle"></i> ${detail}`;
+                            projectModalDetailsList.appendChild(li);
+                        });
+                        
+                        // Set project tags
+                        projectModalTags.innerHTML = '';
+                        project.tags.forEach(tag => {
+                            const span = document.createElement('span');
+                            span.className = 'project-modal-tag';
+                            span.textContent = tag;
+                            projectModalTags.appendChild(span);
+                        });
+                        
+                        // Set project images
+                        projectModalMainImage.src = project.images[0];
+                        projectModalThumbnails.innerHTML = '';
+                        
+                        project.images.forEach((image, index) => {
+                            const thumbnail = document.createElement('div');
+                            thumbnail.className = 'project-modal-thumbnail' + (index === 0 ? ' active' : '');
+                            thumbnail.innerHTML = `<img src="${image}" alt="Thumbnail ${index + 1}">`;
+                            thumbnail.addEventListener('click', () => {
+                                // Update main image
+                                projectModalMainImage.src = image;
+                                
+                                // Update active thumbnail
+                                document.querySelectorAll('.project-modal-thumbnail').forEach(thumb => {
+                                    thumb.classList.remove('active');
+                                });
+                                thumbnail.classList.add('active');
+                            });
+                            projectModalThumbnails.appendChild(thumbnail);
+                        });
+                        
+                        // Set button actions
+                        projectModalViewGallery.onclick = () => {
+                            alert(currentLanguage === 'fr' ? 'Cela ouvrirait une page de galerie complète pour ' + project.title : 'This would open a full gallery page for ' + project.title);
+                        };
+                        
+                        projectModalContact.onclick = () => {
+                            projectModal.classList.remove('open');
+                            document.body.style.overflow = 'auto';
+                            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                        };
+                        
+                        // Show modal
+                        projectModal.classList.add('open');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+            
+            projectModalClose.addEventListener('click', () => {
+                projectModal.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            });
+            
+            projectModal.addEventListener('click', (e) => {
+                if (e.target === projectModal) {
+                    projectModal.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        // Navigation active state
+        function updateNavLinks() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Fade in animation on scroll
+        function initializeFadeIn() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                fadeInObserver.observe(element);
+            });
+        }
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString(),
+                read: false
+            };
+            
+            // Save message to localStorage
+            const messages = JSON.parse(localStorage.getItem('portfolioMessages') || '[]');
+            messages.push(formData);
+            localStorage.setItem('portfolioMessages', JSON.stringify(messages));
+            
+            // Show success message
+            alert(currentLanguage === 'fr' 
+                ? 'Merci pour votre message ! Je vous répondrai bientôt.' 
+                : 'Thank you for your message! I will get back to you soon.');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load language preference
+            const savedLanguage = localStorage.getItem('portfolioLanguage') || 'fr';
+            switchLanguage(savedLanguage);
+            
+            // Load portfolio data
+            loadPortfolioData();
+            
+            // Language switcher event listeners
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    switchLanguage(this.dataset.lang);
+                });
+            });
+            
+            // Navigation scroll
+            window.addEventListener('scroll', function() {
+                updateNavLinks();
+                
+                // Navbar background on scroll
+                const navbar = document.getElementById('navbar');
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                // Scroll to top button
+                const scrollTopBtn = document.getElementById('scrollTop');
+                if (window.scrollY > 500) {
+                    scrollTopBtn.classList.add('active');
+                } else {
+                    scrollTopBtn.classList.remove('active');
+                }
+            });
+            
+            // Professional Hamburger menu
+            const hamburger = document.getElementById('hamburger');
+            const navLinksContainer = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinksContainer.classList.toggle('active');
+                document.body.style.overflow = navLinksContainer.classList.contains('active') ? 'hidden' : 'auto';
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinksContainer.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+            
+            // Scroll to top functionality
+            const scrollTopBtn = document.getElementById('scrollTop');
+            
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Initialize fade-in animations
+            initializeFadeIn();
+        });
+
+        // Listen for storage changes (for real-time updates from admin panel)
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'aboutData' || e.key === 'galleryData' || e.key === 'projectsData' || e.key === 'contactData') {
+                loadPortfolioData();
+            }
+        });
+
+        // Also listen for custom events (for same-tab updates)
+        window.addEventListener('portfolioUpdate', function() {
+            loadPortfolioData();
+        });
+    </script>
+</body>
+</html>
